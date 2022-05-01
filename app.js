@@ -9,6 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { type } = require("os");
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -33,3 +34,28 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
+inquirer.prompt([
+ 
+  {
+    message: 'what is the name of your manager?',
+    type: 'input',
+    name: 'manager',
+  },
+  {
+    message: 'what is the managers ID?',
+    type: 'input',
+    name: 'ID',
+  },
+  {
+    message: 'what is the managers email?',
+    type: 'input',
+    name: 'email',
+  },
+  {
+    message: 'what number is the managers office?',
+    type: 'input',
+    name: 'office',
+  },
+])
+.then(Manager=>new Manager)
