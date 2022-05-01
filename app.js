@@ -58,4 +58,7 @@ inquirer.prompt([
     name: 'office',
   },
 ])
-.then(Manager=>new Manager)
+.then(manager=>{
+  console.log(manager);
+  new Manager(manager.name, manager.ID, manager.email, manager.office)
+})
