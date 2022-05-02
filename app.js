@@ -34,6 +34,11 @@ const { type } = require("os");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
+
+let employeeArray = []
+
+
 const engineerOrIntern = () => {
   inquirer.prompt([{
     message: 'add a engineer or a intern to the team',
@@ -101,18 +106,8 @@ inquirer.prompt([
 ])
 .then(manager=>{
   console.log(manager);
-  new Manager(manager.name, manager.ID, manager.email, manager.office)
+  let newManager=new Manager(manager.name, manager.ID, manager.email, manager.office)
+  employeeArray.push(newManager)
   engineerOrIntern()
 })
 
-// const engineerOrIntern = () =>{
-//   inquirer.prompt([{
-//     message:'add a engineer or a intern to the team',
-//     type: 'list',
-//     name: 'team member',
-//     choices: ['engineer'.'intern'],
-//   }])
-//   .then(answer => {
-//     console.log(answer);
-//   })
-// }
