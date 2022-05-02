@@ -43,6 +43,36 @@ const engineerOrIntern = () => {
   }])
     .then(answer => {
       console.log(answer);
+      if(answer.engineerOrIntern === 'Engineer'){
+        inquirer.prompt([
+          {
+            message: 'what is the name of the Engineer',
+            type: 'input',
+            name: 'manager',
+          },
+          {
+            message: 'what is the Engineer ID?',
+            type: 'input',
+            name: 'ID',
+          },
+          {
+            message: 'what is the Engineer email?',
+            type: 'input',
+            name: 'email',
+          },
+          {
+            message: 'what is the Engineer email?',
+            type: 'input',
+            name: 'GitHub',
+          },
+        ])
+        .then(engineer => {
+          console.log(engineer);
+          let newEngineer = new Engineer(engineer.name, engineer.id, engineer.email, engineer.github)
+          employeeArray.push(newEngineer)
+          console.log(employeeArray);
+        })
+      }
     })
 }
 
