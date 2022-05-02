@@ -38,6 +38,21 @@ const { type } = require("os");
 
 let employeeArray = []
 
+const contQ= () => {
+  inquirer.prompt([{
+    message:'would you like to add more people to your team?',
+    choices:['yes','no'],
+    type:'list',
+    name:'addTeamMembers',
+  }])
+  .then(addTeamMembers => {
+    if (addTeamMembers.addTeamMembers === 'yes'){
+      engineerOrIntern()
+    }else{
+      console.log('done!')
+    }
+  })
+}
 
 const engineerOrIntern = () => {
   inquirer.prompt([{
@@ -75,7 +90,8 @@ const engineerOrIntern = () => {
           console.log(engineer)
           let newEngineer = new Engineer(engineer.name, engineer.ID, engineer.email, engineer.GitHub)
           employeeArray.push(newEngineer)
-          console.log(employeeArray);
+          console.log(employeeArray)
+          contQ()
         })
       }
     })
