@@ -53,7 +53,7 @@ const engineerOrIntern = () => {
           {
             message: 'what is the name of the Engineer',
             type: 'input',
-            name: 'manager',
+            name: 'name',
           },
           {
             message: 'what is the Engineer ID?',
@@ -73,7 +73,7 @@ const engineerOrIntern = () => {
         ])
         .then(engineer => {
           console.log(engineer)
-          let newEngineer = new Engineer(engineer.name, engineer.id, engineer.email, engineer.github)
+          let newEngineer = new Engineer(engineer.name, engineer.ID, engineer.email, engineer.GitHub)
           employeeArray.push(newEngineer)
           console.log(employeeArray);
         })
