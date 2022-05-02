@@ -47,8 +47,8 @@ const engineerOrIntern = () => {
     choices: ['engineer','intern'],
   }])
     .then(answer => {
-      console.log(answer);
-      if(answer.engineerOrIntern === 'Engineer'){
+      console.log(answer)
+      if(answer.engineerOrIntern='Engineer'){
         inquirer.prompt([
           {
             message: 'what is the name of the Engineer',
@@ -66,13 +66,13 @@ const engineerOrIntern = () => {
             name: 'email',
           },
           {
-            message: 'what is the Engineer email?',
+            message: 'what is the Engineer Github?',
             type: 'input',
             name: 'GitHub',
           },
         ])
         .then(engineer => {
-          console.log(engineer);
+          console.log(engineer)
           let newEngineer = new Engineer(engineer.name, engineer.id, engineer.email, engineer.github)
           employeeArray.push(newEngineer)
           console.log(employeeArray);
