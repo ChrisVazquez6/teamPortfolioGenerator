@@ -4,12 +4,14 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+var fse = require('fs-extra');
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 const { type } = require("os");
+const { finished } = require("stream");
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -38,6 +40,10 @@ const { type } = require("os");
 
 let employeeArray = []
 
+const finishedfunction = () =>{
+  let team = render(employeeArray)
+}
+
 const contQ= () => {
   inquirer.prompt([{
     message:'would you like to add more people to your team?',
@@ -49,7 +55,7 @@ const contQ= () => {
     if (addTeamMembers.addTeamMembers === 'yes'){
       engineerOrIntern()
     }else{
-      console.log('done!')
+      finishedfunction
     }
   })
 }
