@@ -71,12 +71,12 @@ const engineerOrIntern = () => {
   inquirer.prompt([{
     message: 'add a engineer or a intern to the team',
     type: 'list',
-    name: 'team member',
-    choices: ['engineer','intern'],
+    choices:['engineer', 'intern'],
+    name: 'teamMember'
   }])
     .then(answer => {
       console.log(answer)
-      if(answer.engineerOrIntern='Engineer'){
+      if(answer.engineerOrIntern="engineer"){
         inquirer.prompt([
           {
             message: 'what is the name of the Engineer',
@@ -106,7 +106,8 @@ const engineerOrIntern = () => {
           console.log(employeeArray)
           contQ()
         })
-      } else if (answer.engineerOrIntern ==='Intern'){
+
+      } else if(answer.engineerOrIntern="intern"){
         inquirer.prompt([{
           message: 'what is the name of the Intern',
           type: 'input',
