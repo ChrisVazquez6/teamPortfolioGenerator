@@ -93,6 +93,33 @@ const engineerOrIntern = () => {
           console.log(employeeArray)
           contQ()
         })
+      } else if (answer.engineerOrIntern = 'intern'){
+        inquirer.prompt([{
+          message: 'what is the name of the Intern',
+          type: 'input',
+          name: 'name',
+        },
+          {
+            message: 'what is the Interns ID?',
+            type: 'input',
+            name: 'ID',
+          },
+          {
+            message: 'what is the Interns email?',
+            type: 'input',
+            name: 'email',
+          },
+          {
+            message: 'what is the Interns School?',
+            type: 'input',
+            name: 'School',
+          }])
+          .then(intern => {
+            let nIntern = new Intern(intern.name, intern.ID, intern.email, intern.School)
+            employeeArray.push(nIntern)
+            console.log(employeeArray)
+            contQ()
+          })
       }
     })
 }
