@@ -44,7 +44,7 @@ const finishedfunction = () =>{
   let team = render(employeeArray)
   fse.outputFile('output/team.html', team)
     .then(() => {
-      console.log('The file has been saved!');
+      console.log('You created a Team!');
     })
     .catch(err => {
       console.error(err)
