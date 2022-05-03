@@ -42,6 +42,13 @@ let employeeArray = []
 
 const finishedfunction = () =>{
   let team = render(employeeArray)
+  fse.outputFile('output/team.html', team)
+    .then(() => {
+      console.log('The file has been saved!');
+    })
+    .catch(err => {
+      console.error(err)
+    })
 }
 
 const contQ= () => {
@@ -55,7 +62,7 @@ const contQ= () => {
     if (addTeamMembers.addTeamMembers === 'yes'){
       engineerOrIntern()
     }else{
-      finishedfunction
+      finishedfunction()
     }
   })
 }
@@ -99,7 +106,7 @@ const engineerOrIntern = () => {
           console.log(employeeArray)
           contQ()
         })
-      } else if (answer.engineerOrIntern = 'intern'){
+      } else if (answer.engineerOrIntern ==='Intern'){
         inquirer.prompt([{
           message: 'what is the name of the Intern',
           type: 'input',
@@ -135,7 +142,7 @@ inquirer.prompt([
   {
     message: 'what is the name of your manager?',
     type: 'input',
-    name: 'manager',
+    name: 'name',
   },
   {
     message: 'what is the managers ID?',
